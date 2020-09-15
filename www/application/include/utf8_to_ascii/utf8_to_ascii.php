@@ -63,7 +63,7 @@ function utf8_to_ascii($str, $unknown = '?') {
         } else {
             
             # 2 bytes
-            $ord1 = ord($str{$i+1});
+            $ord1 = ord($str[$i+1]);
             
             if ( $ord0 >= 192 && $ord0 <= 223 ) {
                 
