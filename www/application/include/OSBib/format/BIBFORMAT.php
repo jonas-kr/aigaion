@@ -901,9 +901,9 @@ class BIBFORMAT
 				}
 				else // intervening fields not found - do we have an alternative?
 				{
-					if(array_key_exists($firstKey - 1, $itemArray) && $preAlternative)
+					if(isset($itemArray) && array_key_exists($firstKey - 1, $itemArray) && $preAlternative)
 						$itemArray[$firstKey - 1] .= $preAlternative;
-					if(array_key_exists($secondKey + 1, $itemArray) && $postAlternative)
+					if(isset($itemArray) && array_key_exists($secondKey + 1, $itemArray) && $postAlternative)
 						$itemArray[$secondKey + 1] = $postAlternative . $itemArray[$secondKey + 1];
 				}
 			}
