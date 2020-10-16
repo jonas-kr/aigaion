@@ -603,7 +603,8 @@ function getPublicationStatusTypes()
                "revision"       => __('Under revision'),
                "accepted"       => __('Accepted'),
                "rejected"       => __('Rejected'),
-               "published"      => __('Published'));
+               "published"      => __('Published'),
+               "invited"        => __('Invited'));
 }
 
 ?>
