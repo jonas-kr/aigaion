@@ -12,10 +12,11 @@ so that your improvements can be added to the release package.
 
 Mark Grimshaw 2006
 http://bibliophile.sourceforge.net
-********************************/
+********************************/
+
 class PARSESTYLE
 {
-	function PARSESTYLE()
+	function __construct()
 	{
 	}
 	function findAlternateFields($subjectArray, $search)
@@ -377,5 +378,7 @@ class PARSESTYLE
 		}
 		return $final;
 	}
-}
-?>
+}
+
+?>
+
