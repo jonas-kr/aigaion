@@ -880,7 +880,7 @@ class BIBFORMAT
 				$secondKey = array_shift($independentKeys);
 				for($index = $firstKey; $index <= $secondKey; $index++)
 				{
-					if(array_key_exists($index, $itemArray))
+					if(isset($itemArray) && array_key_exists($index, $itemArray))
 					{
 						$startFound = $index;
 						break;
@@ -888,7 +888,7 @@ class BIBFORMAT
 				}
 				for($index = $secondKey; $index >= $firstKey; $index--)
 				{
-					if(array_key_exists($index, $itemArray))
+					if(isset($itemArray) && array_key_exists($index, $itemArray))
 					{
 						$endFound = $index;
 						break;
