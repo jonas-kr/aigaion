@@ -58,7 +58,6 @@ function getFullFieldArray() {
                   'userfields'     ,
                   'kit_is_invited' ,
                   'affiliation'    ,
-                  'project'
     );
 }
 function getCapitalFieldArray() {
