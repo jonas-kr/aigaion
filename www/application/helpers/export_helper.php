@@ -30,8 +30,35 @@ require_once(APPPATH."include/utf8/trim.php");
         $userlogin = getUserLogin();
         $fields = array();
         $maxfieldname=0;
-        //open entry
-        $result = '@'.strtoupper($publication->pub_type).'{'.$publication->bibtex_id.",\n";
+
+        // FIX for IPQ reference types lecture & workshop
+        switch ($publication->pub_type){
+          case 'Lecture':
+            $publication->pub_type = 'misc';
+            $publication->howpublished = 'Lecture given at ' . $publication->booktitle;
+            $publication->booktitle = '';
+          break;
+          case 'Workshop':
+            $publication->pub_type = 'misc';
+            $publication->howpublished = 'Workshop given at ' . $publication->booktitle;
+            $publication->booktitle = '';
+          break;
+        }
+        if ($publication->status === 'invited') {
+          $publication->kit_is_invited = 'true';
+        } else {
+          $publication->kit_is_invited = 'false';
+        }
+
+        # assume all publications are from IPQ as long as we have key == ipq
+        if ($publication->namekey === 'ipq') {
+          $publication->affiliation = 'IPQ, KIT';
+        } else {
+          $publication->affiliation = 'EXTERN';
+        }
+
+        //open entry - remove comma for more comfortable KITopen import
+        $result = '@'.strtoupper($publication->pub_type).'{'.$publication->bibtex_id."\n";
         //collect authors
         $authors = "";
         $first = true;
@@ -104,7 +131,8 @@ require_once(APPPATH."include/utf8/trim.php");
                   'abstract'       ,
                   'issn'           ,
                   'isbn'           ,
-                  'namekey'        );
+                  'namekey'        ,
+                  'kit_is_invited',);
         $omitifzero = array('chapter','year');
         //now add all other fields that are relevant for exporting
         foreach (getFullFieldArray() as $field) {

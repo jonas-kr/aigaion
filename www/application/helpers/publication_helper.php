@@ -55,7 +55,10 @@ function getFullFieldArray() {
                   'crossref'       ,
                   'namekey'        ,
                   'abstract'       ,
-                  'userfields'     
+                  'userfields'     ,
+                  'kit_is_invited' ,
+                  'affiliation'    ,
+                  'project'
     );
 }
 function getCapitalFieldArray() {
@@ -258,7 +261,15 @@ function getPublicationFieldArray($type)
                   'abstract'        => 'optional',
                   'userfields'      => 'optional'
 								);
-		break;
+    break;
+    case "Lecture":
+      return array( 'type'	          => 'hidden',
+                    'booktitle'       => 'optional',
+                    'year'            => 'optional',
+                    'location'        => 'optional',
+                    'namekey'         => 'optional',
+                  );
+      break;
 		case "Manual":
 		return array( 'type'	          => 'hidden',
                   'journal'         => 'hidden',
@@ -468,7 +479,15 @@ function getPublicationFieldArray($type)
                   'abstract'        => 'optional',
                   'userfields'      => 'optional'
 								);
-		break;
+    break;
+    case "Workshop":
+      return array( 'type'	          => 'hidden',
+                    'booktitle'       => 'optional',
+                    'year'            => 'optional',
+                    'location'        => 'optional',
+                    'namekey'         => 'optional',
+                  );
+      break;
 		default:
 		return array();
 		break;
@@ -583,14 +602,16 @@ function getPublicationTypes()
           		 "Booklet"        => __('Booklet'),
           		 "Inbook"         => __('Inbook'),
           		 "Incollection"   => __('Incollection'),
-          		 "Inproceedings"  => __('Inproceedings'),
+               "Inproceedings"  => __('Inproceedings'),
+               "Lecture"        => __('Lecture'),
           		 "Manual"         => __('Manual'),
           		 "Mastersthesis"  => __('Mastersthesis'),
           		 "Misc"           => __('Misc'),
           		 "Phdthesis"      => __('Phdthesis'),
           		 "Proceedings"    => __('Proceedings'),
           		 "Techreport"     => __('Techreport'),
-          		 "Unpublished"    => __('Unpublished'));
+               "Unpublished"    => __('Unpublished'),
+               "Workshop"       => __('Workshop'));
 }
 
 

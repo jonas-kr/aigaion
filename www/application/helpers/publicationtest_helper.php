@@ -264,6 +264,13 @@ function getPublicationSummaryFieldArray($type)
 	                  'actualyear'    => ', '
                   );
 		break;
+		case "Lecture":
+			return array( 'booktitle'     => ', ', 
+ 	                  'location'      => ', ',
+					  'actualyear'    => ', ',
+					  'status'		=> ', '
+                  );
+		break;
 		case "Manual":
 			return array( 'edition'       => ', ',
 	                  'organization'  => ', ',
@@ -302,6 +309,12 @@ function getPublicationSummaryFieldArray($type)
 			return array( 'actualyear'    => ', '
 			            );
 		break;
+		case "Workshop":
+			return array( 'booktitle'     => ', ', 
+ 	                  'location'      => ', ',
+					  'actualyear'    => ', ',
+					  'status'		=> ', '
+                  );
 		default:
 	    return array();
 		break;
@@ -315,14 +328,16 @@ function getPublicationTypes()
           		 "Booklet"        => 'Booklet',
           		 "Inbook"         => 'Inbook',
           		 "Incollection"   => 'Incollection',
-          		 "Inproceedings"  => 'Inproceedings',
+				   "Inproceedings"  => 'Inproceedings',
+				   "Lecture"		=> 'Lecture',
           		 "Manual"         => 'Manual',
           		 "Mastersthesis"  => 'Mastersthesis',
           		 "Misc"           => 'Misc',
           		 "Phdthesis"      => 'Phdthesis',
           		 "Proceedings"    => 'Proceedings',
           		 "Techreport"     => 'Techreport',
-          		 "Unpublished"    => 'Unpublished');
+				   "Unpublished"    => 'Unpublished',
+					"Workshop"		=> 'Workshop');
 }
 
 
