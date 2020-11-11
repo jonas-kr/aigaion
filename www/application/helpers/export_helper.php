@@ -58,7 +58,7 @@ require_once(APPPATH."include/utf8/trim.php");
         }
 
         //open entry - remove comma for more comfortable KITopen import
-        $result = '@'.strtoupper($publication->pub_type).'{'.$publication->bibtex_id."\n";
+        $result = '@'.strtoupper($publication->pub_type).'{'.$publication->bibtex_id.",\n";
         //collect authors
         $authors = "";
         $first = true;
