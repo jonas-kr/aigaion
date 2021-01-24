@@ -184,7 +184,7 @@ function checkDatabaseV1_14($bSilent = false, $AIGAION2_DB_PREFIX = "") {
 
   //introduce table that will contain the descriptions of all available rights, and fill it with the
   //initial list of rights
-  $res = mysql_query("CREATE TABLE `".$AIGAION2_DB_PREFIX."availablerights` (`name` varchar(20) NOT NULL, `description` varchar(255) NOT NULL, PRIMARY KEY  (`name`)) TYPE=MyISAM;");
+  $res = mysql_query("CREATE TABLE `".$AIGAION2_DB_PREFIX."availablerights` (`name` varchar(20) NOT NULL, `description` varchar(255) NOT NULL, PRIMARY KEY  (`name`)) TYPE=InnoDB;");
   if (!$res) {
       dbError(mysql_error());
       return false;
@@ -212,7 +212,7 @@ function checkDatabaseV1_14($bSilent = false, $AIGAION2_DB_PREFIX = "") {
   
   //introduce table that stores the rights assigned to each aigaion user, and fill it with the appropriate 
   //rights depending on that user's original rights-level.
-  $res = mysql_query("CREATE TABLE `".$AIGAION2_DB_PREFIX."userrights` (`user_id` INT(10) NOT NULL, `right_name` VARCHAR(20) NOT NULL, PRIMARY KEY (`right_name`,`user_id`)) TYPE=MyISAM;");
+  $res = mysql_query("CREATE TABLE `".$AIGAION2_DB_PREFIX."userrights` (`user_id` INT(10) NOT NULL, `right_name` VARCHAR(20) NOT NULL, PRIMARY KEY (`right_name`,`user_id`)) TYPE=InnoDB;");
   if (!$res) {
     dbError(mysql_error());
     return false;
@@ -798,7 +798,7 @@ function checkDatabaseV1_1($bSilent = false, $AIGAION2_DB_PREFIX = "") {
   	echo ("Updating version V1.1... "); //for debug
 
   #create new table for config settings. Columns: 'setting' / 'value' ; primkey 'setting'
-  $res = mysql_query("CREATE TABLE `".$AIGAION2_DB_PREFIX."config` (`setting` varchar(255) NOT NULL, `value` varchar(255) NOT NULL, PRIMARY KEY  (`setting`)) TYPE=MyISAM;");
+  $res = mysql_query("CREATE TABLE `".$AIGAION2_DB_PREFIX."config` (`setting` varchar(255) NOT NULL, `value` varchar(255) NOT NULL, PRIMARY KEY  (`setting`)) TYPE=InnoDB;");
   if (!$res) {
       dbError(mysql_error());
       return false;
