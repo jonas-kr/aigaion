@@ -12,7 +12,9 @@ The update process is slow because it is done on my free time but with community
 
 * 2/10/2019 - Today the project was migrated to aigaion organization.
 * 31/7/2019 - With pull request from @mahermanns, aigaion is able to run on modern php (>v7) by removing direct reference to mysql functions and migrating to mysqli lib.
-
+* 24/01/2021 - Some old PHP4 legacy code warnings fixed to work with PHP7.4
+             - CREATE TABLE statements changed from MyISAM to InnoDB.
+             - CodeIgniter framework updated from 2.1.0 to 2.2.6
 
 ## Installation
 
