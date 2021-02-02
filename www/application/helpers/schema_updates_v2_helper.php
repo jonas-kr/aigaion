@@ -165,7 +165,7 @@ Customizable publication summary
                         `type` enum('publication','author','topic') NOT NULL default 'publication',
                         `order` int(10) unsigned NOT NULL default '0',
                         `name` VARCHAR(255) NOT NULL default '',
-                        PRIMARY KEY  (`type_id`)) ENGINE=MyISAM CHARACTER SET utf8;");
+                        PRIMARY KEY  (`type_id`)) ENGINE=InnoDB CHARACTER SET utf8;");
         
         if (! $Q) 
             return False;
@@ -213,7 +213,7 @@ Customizable publication summary
                         (  `entry_id` int(10) unsigned NOT NULL auto_increment,  
                         `type` enum('publication','author','topic') NOT NULL default 'publication', 
                         `object_id` int(10) unsigned NOT NULL,
-                        `value` TEXT NOT NULL,  PRIMARY KEY  (`entry_id`)) ENGINE=MyISAM CHARACTER SET utf8;");
+                        `value` TEXT NOT NULL,  PRIMARY KEY  (`entry_id`)) ENGINE=InnoDB CHARACTER SET utf8;");
         
         if (! $Q) 
             return False;
@@ -409,7 +409,7 @@ Aigaion now runs on CodeIgniter version 1.7
                                   `status` enum('active','loggedout','loggedin') NOT NULL default 'active', 
                                   `sitename` varchar(255) NOT NULL default '',  
                                   PRIMARY KEY  (`token`)
-                                ) ENGINE=MyISAM CHARACTER SET utf8;");
+                                ) ENGINE=InnoDB CHARACTER SET utf8;");
         
         
         return setVersion('V2.14');

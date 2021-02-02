@@ -25,7 +25,7 @@ class BIBFORMAT
 /**
 * $dir is the path to STYLEMAP.php etc.
 */
-	function BIBFORMAT($dir = FALSE, $bibtex = FALSE, $preview = FALSE)
+	function __construct($dir = FALSE, $bibtex = FALSE, $preview = FALSE)
 	{
 //05/05/2005 G.GARDEY: add a last "/" to $stylePath if not present.
 		$this->preview = $preview;
@@ -1453,7 +1453,7 @@ class BIBFORMAT
 		}
 		$pString = isset($newString) ? $newString : $pString;
 		if(strlen($oldString)>0) // perhaps requires first character maintained as is
-			if($oldString{0} == $oldDelimitLeft) 
+			if($oldString[0] == $oldDelimitLeft) 
 				return ltrim($pString);
 		return $this->utf8->utf8_ucfirst(ltrim($pString));
 	}
@@ -1892,11 +1892,15 @@ class BIBFORMAT
 }
 /*****
  * BIBTEXCONFIG: BibTeX Configuration class
- *****/
-class BIBTEXCONFIG{// Constructor
-  function BIBTEXCONFIG()
+ *****/
+
+class BIBTEXCONFIG
+{
+// Constructor
+  function __construct()
   {
-  }
+  }
+
 // BibTeX arrays
   function bibtex()
   {
@@ -1972,7 +1976,8 @@ class BIBTEXCONFIG{// Constructor
 			      0x00FF	=>	'{\"y}',
 			      0x00A1	=>	"{\!}",
 			      0x00BF	=>	"{\?}",
-			      );//Old style with extra {} - usually array_flipped
+			      );
+//Old style with extra {} - usually array_flipped
     $this->bibtexSpChOld = array(
 				 0x00C0	=>	"{\`{A}}",
 				 0x00C1	=>	"{\'{A}}",
@@ -2034,7 +2039,8 @@ class BIBTEXCONFIG{// Constructor
 				 0x00FF	=>	'{\"{y}}',
 				 0x00A1	=>	"{\{!}}",
 				 0x00BF	=>	"{\{?}}",
-				 );// And there's more?!?!?!?!? (This is not strict bibtex.....)
+				 );
+// And there's more?!?!?!?!? (This is not strict bibtex.....)
     $this->bibtexSpChOld2 = array(
 				  0x00C0	=>	"\`{A}",
 				  0x00C1	=>	"\'{A}",
@@ -2096,7 +2102,8 @@ class BIBTEXCONFIG{// Constructor
 				  0x00FF	=>	'\"{y}',
 				  0x00A1	=>	"\{!}",
 				  0x00BF	=>	"\{?}",
-				  );// Latex code that some bibtex users may be using
+				  );
+// Latex code that some bibtex users may be using
     $this->bibtexSpChLatex = array(
 				   0x00C0	=>	"\`A",
 				   0x00C1	=>	"\'A",

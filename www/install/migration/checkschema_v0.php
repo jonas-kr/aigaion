@@ -606,7 +606,7 @@ function checkDatabaseV0_1($bSilent = false, $AIGAION2_DB_PREFIX = "") {
 
     //otherwise, try to make that table and column, and init with one row. Set version to "V0.1"
     //  if successfull, return true, else false
-    $res = mysql_query("CREATE TABLE `".$AIGAION2_DB_PREFIX."aigaiongeneral` (`version` varchar(10) NOT NULL, PRIMARY KEY  (`version`)) TYPE=MyISAM;");
+    $res = mysql_query("CREATE TABLE `".$AIGAION2_DB_PREFIX."aigaiongeneral` (`version` varchar(10) NOT NULL, PRIMARY KEY  (`version`)) TYPE=InnoDB;");
     if (!$res) {
         dbError(mysql_error());
         return false;
