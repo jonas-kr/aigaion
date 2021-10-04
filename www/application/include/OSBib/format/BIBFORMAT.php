@@ -880,7 +880,7 @@ class BIBFORMAT
 				$secondKey = array_shift($independentKeys);
 				for($index = $firstKey; $index <= $secondKey; $index++)
 				{
-					if(isset($itemArray) && array_key_exists($index, $itemArray))
+					if(array_key_exists($index, $itemArray))
 					{
 						$startFound = $index;
 						break;
@@ -888,7 +888,7 @@ class BIBFORMAT
 				}
 				for($index = $secondKey; $index >= $firstKey; $index--)
 				{
-					if(isset($itemArray) && array_key_exists($index, $itemArray))
+					if(array_key_exists($index, $itemArray))
 					{
 						$endFound = $index;
 						break;
@@ -901,9 +901,9 @@ class BIBFORMAT
 				}
 				else // intervening fields not found - do we have an alternative?
 				{
-					if(isset($itemArray) && array_key_exists($firstKey - 1, $itemArray) && $preAlternative)
+					if(array_key_exists($firstKey - 1, $itemArray) && $preAlternative)
 						$itemArray[$firstKey - 1] .= $preAlternative;
-					if(isset($itemArray) && array_key_exists($secondKey + 1, $itemArray) && $postAlternative)
+					if(array_key_exists($secondKey + 1, $itemArray) && $postAlternative)
 						$itemArray[$secondKey + 1] = $postAlternative . $itemArray[$secondKey + 1];
 				}
 			}

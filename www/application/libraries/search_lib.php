@@ -449,7 +449,7 @@ class Search_lib {
         //nonexplicit anchoring: match only word beginnings, * for open ends
         $prefix_wildcard = '[[:<:]]';
       }
-      $result .= $fieldname." REGEXP '".$prefix_wildcard.$CI->db->escape_str($keyword)."' ";
+      $result .= $fieldname." REGEXP '".$prefix_wildcard.$CI->db->conn_id->escape_string($keyword)."' ";
     }
     
     return '('.$result.')';

@@ -93,7 +93,7 @@ class Parsecreators
 					    $tempFirst[] = array_shift($author);
 					    if(!empty($author))
 					        $case = $this->getStringCase($author[0]);
-					} 
+					}
 					
 					list($von, $surname) = $this->getVonLast($author);
 
@@ -311,7 +311,7 @@ class Parsecreators
 		//bibtex-conform
 		foreach ($name as $part)
 		{
-			if (($part{($size-1)} == ".") && ($size < 4))
+			if (($part[($size-1)] == ".") && ($size < 4))
 				$initials[] = $part;
 			else
 				$remain[] = $part;

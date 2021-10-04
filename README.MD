@@ -10,9 +10,18 @@ The update process is slow because it is done on my free time but with community
 
 ## Changelog
 
+* 24/01/2021 - Some old PHP4 legacy code warnings fixed to work with PHP7.4
+             - CREATE TABLE statements changed from MyISAM to InnoDB.
+             - CodeIgniter framework updated from 2.1.0 to 2.2.6
 * 2/10/2019 - Today the project was migrated to aigaion organization.
 * 31/7/2019 - With pull request from @mahermanns, aigaion is able to run on modern php (>v7) by removing direct reference to mysql functions and migrating to mysqli lib.
 
+
+## Requirements
+
+* PHP up to 7.4 (thanks to @shinguz)
+* MYSQL or MARIADB
+* Webserver (Apache, Nginx, etc)
 
 ## Installation
 
@@ -21,19 +30,19 @@ Please modify as needed.
 
 ### Clean install
     
-This documentation is for installing Aigaion 2.5 from scratch, with an empty database
+This documentation is for installing Aigaion 2.5 from scratch, with an empty database.
     
-    1)  Copy the Aigaion 2.5 files from the www folder to <WEBROOT>/<aigaion2_rootdir>/
-    2)  Create a new MySQL database '<db_aigaion2>', with an appropriate user. The database is empty.
-    3)  Unpack <WEBROOT>/<aigaion2_rootdir>/install/install.zip into the directory 
-        <WEBROOT>/<aigaion2_rootdir>/install/
-    4)  make a directory where attachments will be stored, and make it writable. By default, 
-        Aigaion expects this directory to be <WEBROOT>/<aigaion2_rootdir>/attachments
-    5)  Point your browser to http://<server>/<aigaion2_rootdir>/install/install.php
-    6) Install will create a new <aigaion2_rootdir>index.php with specific information
-    7) One may want to adjust php.ini to allow upload of big files
+1)  Copy the Aigaion 2.5 files from the www folder to <WEBROOT>/<aigaion2_rootdir>/
+2)  Create a new MySQL database '<db_aigaion2>', with an appropriate user. The database is empty.
+3)  Unpack <WEBROOT>/<aigaion2_rootdir>/install/install.zip into the directory 
+<WEBROOT>/<aigaion2_rootdir>/install/
+4)  make a directory where attachments will be stored, and make it writable. By default, 
+Aigaion expects this directory to be <WEBROOT>/<aigaion2_rootdir>/attachments
+5)  Point your browser to http://<server>/<aigaion2_rootdir>/install/install.php
+6) Install will create a new <aigaion2_rootdir>index.php with specific information
+7) One may want to adjust php.ini to allow upload of big files
 
-    From there on, follow the instructions on the screen.
+From there on, follow the instructions on the screen.
 
 ### UPGRADE FROM AIGAION 2.x
 
